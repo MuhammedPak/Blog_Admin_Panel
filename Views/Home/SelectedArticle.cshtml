@@ -1,0 +1,38 @@
+﻿@model MyBlog_Admin.Models.Article
+@{
+    ViewBag.Title = "NewArticle";
+}
+
+<form name="contactForm" id="contactForm" method="post" action="/Home/UpdateArticle">
+    <fieldset>
+        <div class="group">
+            <label for="cName">Title <span class="required">*</span></label>
+            <input name="title" type="text" id="title" size="35" value=@Model.Title />
+        </div>
+        <div class="message group">
+            <label for="cMessage">Content <span class="required">*</span></label>
+            <textarea name="content" id="cMessage" rows="10" cols="50" >@Model.Content_</textarea>
+        </div>
+        <label for="cName">Categories <span class="required">*</span></label>
+        <select name="categories" multiple="multiple">
+            <a href="#">Categories</a>
+            @foreach (var item in ViewBag.categories)
+            {
+                <option value=@item.Name>@item.Name</option>
+            }
+        </select>
+        <label for="cName">Tags <span class="required">*</span></label>
+        <select name="tags" multiple="multiple">
+            <a href="#">Tags</a>
+            @foreach (var item in ViewBag.tag)
+            {
+                <option value=@item.Name>@item.Name</option>
+            }
+        </select>
+        <input name="ArticleId" type="hidden" value="@Model.ArticleId"/>
+        <button type="submit" class="submit">Comment</button>
+
+    </fieldset>
+</form>
+
+        

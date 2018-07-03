@@ -1,0 +1,156 @@
+﻿<!DOCTYPE html>
+<!--[if lt IE 8 ]><html class="no-js ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="no-js ie ie8" lang="en"> <![endif]-->
+<!--[if IE 9 ]><html class="no-js ie ie9" lang="en"> <![endif]-->
+<!--[if (gte IE 8)|!(IE)]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+<head>
+
+    <!--- Basic Page Needs
+    ================================================== -->
+    <meta charset="utf-8">
+    <title>Keep It Simple.</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- mobile specific metas
+    ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- CSS
+     ================================================== -->
+    <link rel="stylesheet" href="/Content/css/default.css">
+    <link rel="stylesheet" href="/Content/css/layout.css">
+    <link rel="stylesheet" href="/Content/css/media-queries.css">
+
+    <!-- Script
+    ================================================== -->
+    <script src="/Content/js/modernizr.js"></script>
+
+    <!-- Favicons
+     ================================================== -->
+    <link rel="shortcut icon" href="/Content/favicon.png">
+
+</head>
+
+<body>
+
+    <!-- end #nav -->
+    <!-- Header
+    ================================================== -->
+    <header id="top">
+
+        <div class="row">
+
+            <div class="header-content twelve columns">
+
+                <h1 id="logo-text"><a href="/Home/Index" title="">Muhammed Pak</a></h1>
+
+
+            </div>
+
+        </div>
+        <nav id="nav-wrap">
+
+            <a class="mobile-btn" href="#nav-wrap" title="Show navigation">Show Menu</a>
+            <a class="mobile-btn" href="#" title="Hide navigation">Hide Menu</a>
+
+            <div class="row">
+                <ul id="nav" class="nav">
+                    <li><a href="/Home/Index">Home</a></li>
+                    <li class="has-children">
+                        <a href="#">Categories</a>
+                        <ul>
+                            @{
+                                Html.RenderAction("Fill_Categories", "Home");
+                            }
+
+                        </ul>
+                    </li>
+                    <li><a href="/Home/Archive">Archive</a></li>
+               
+
+
+                </ul>
+            </div>
+        </nav>
+
+    </header> <!-- Header End -->
+    <!-- Content
+    ================================================== -->
+    <div id="content-wrap">
+        <div class="row">
+            <div id="main" class="eight columns">
+
+                @RenderBody()
+
+            </div>
+
+            <!-- end main -->
+
+            <div id="sidebar" class="four columns">
+
+                <div class="widget widget_search">
+                    <h3>Search</h3>
+                    <form action="/Home/Search">
+
+                        <input type="text" value="" placeholder="Search here..." name="text" class="text-search">
+                        <input type="submit" value="" class="submit-search">
+
+                    </form>
+                </div>
+
+                @{
+
+                    Html.RenderAction("CategoryWidget", "Home");
+                    Html.RenderAction("TagWidget", "Home");
+                }
+
+
+
+
+
+            </div> <!-- end sidebar -->
+
+
+
+
+
+        </div> <!-- end row -->
+
+    </div> <!-- end content-wrap -->
+    <!-- Footer
+    ================================================== -->
+    <footer>
+
+        <div class="row">
+
+            <div class="twelve columns">
+                <ul class="social-links">
+                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                    <li><a href="#"><i class="fa fa-github-square"></i></a></li>
+                    <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                    <li><a href="#"><i class="fa fa-flickr"></i></a></li>
+                    <li><a href="#"><i class="fa fa-skype"></i></a></li>
+                </ul>
+            </div>
+
+
+        </div> <!-- End row -->
+
+        <div id="go-top"><a class="smoothscroll" title="Back to Top" href="#top"><i class="fa fa-chevron-up"></i></a></div>
+
+    </footer> <!-- End Footer-->
+    <!-- Java Script
+    ================================================== -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="/Content/js/jquery-1.10.2.min.js"><\/script>')</script>
+    <script type="text/javascript" src="/Content/js/jquery-migrate-1.2.1.min.js"></script>
+    <script src="/Content/js/main.js"></script>
+
+</body>
+
+</html>

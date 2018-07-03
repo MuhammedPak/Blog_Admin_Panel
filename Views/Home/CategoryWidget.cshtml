@@ -1,0 +1,18 @@
+﻿@model IEnumerable<MyBlog_Admin.Models.Category>
+@{
+    Layout = null;
+}
+
+
+<div class="widget widget_categories group">
+    <h3>Categories.</h3>
+    <ul>
+        @foreach (var item in Model)
+        {
+            <li><a href="@Url.Action("Category","Home",new { category_Id=item.CategoryId})" title="">@item.Name</a></li>
+        }
+
+
+    </ul>
+</div>
+

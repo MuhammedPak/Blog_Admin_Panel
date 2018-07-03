@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "NewArticle";
+}
+
+<form name="contactForm" id="contactForm" method="post" action="/Home/AddArticle">
+    <fieldset>
+        <div class="group">
+            <label for="cName">Title <span class="required">*</span></label>
+            <input name="title" type="text" id="title" size="35" value="" />
+        </div>
+        <div class="message group">
+            <label for="cMessage">Content <span class="required">*</span></label>
+            <textarea name="content" id="cMessage" rows="10" cols="50"></textarea>
+        </div>
+        <label for="cName">Categories <span class="required">*</span></label>
+        <select name="categories" multiple="multiple"><a href="#">Categories</a>
+            @foreach (var item in ViewBag.categories)
+            {
+                <option value=@item.Name>@item.Name</option>
+            }       
+        </select>
+        <label for="cName">Tags <span class="required">*</span></label>
+        <select name="tags" multiple="multiple" ><a href="#">Tags</a>
+            @foreach (var item in ViewBag.tag)
+            {
+                <option value=@item.Name>@item.Name</option>
+            }       
+        </select>
+        <button type="submit" class="submit">Comment</button>
+
+    </fieldset>
+</form>

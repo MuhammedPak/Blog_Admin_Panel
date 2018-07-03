@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "Log In";
+}
+<div class="respond">
+    <form name="contactForm" id="contactForm" method="post" action="/Home/Login">
+        <fieldset>
+
+            <div class="group">
+                <label for="cName">Name <span class="required">*</span></label>
+                <input name="Name" type="text" id="cName" size="35" value="" />
+            </div>
+            <div class="group">
+                <label for="cName">Surname <span class="required">*</span></label>
+                <input name="Surname" type="text" id="cName" size="35" value="" />
+            </div>
+
+            <button type="submit" class="submit">Log In</button>
+
+        </fieldset>
+    </form>
+</div>
+

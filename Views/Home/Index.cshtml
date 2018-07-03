@@ -1,0 +1,42 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+@model IEnumerable<MyBlog_Admin.Models.Article>
+
+
+@foreach (var item in Model) {
+    <article class="entry">
+
+        <header class="entry-header">
+
+            <h2 class="entry-title">
+                <a href="@Url.Action("SinglePost","Home",new { Id = @item.ArticleId })" title="">@item.Title</a>
+            </h2>
+                
+            <div class="entry-meta">
+                <ul>
+                    <li>@item.Date</li>
+                    @foreach (var tag in item.Tags)
+                    {                      
+                        <span class="meta-sep">&bull;</span>
+                        <li><a href="#" title="" rel="category tag">@tag.Name</a></li>
+                    }
+
+                    <span class="meta-sep">&bull;</span>
+                    <li>Muhammed Pak</li>
+                </ul>
+            </div>
+
+        </header>
+
+        <div class="entry-content">
+            <p>@item.Content_</p>
+        </div>
+
+    </article> <!-- end entry -->
+
+}
+
+
+
+

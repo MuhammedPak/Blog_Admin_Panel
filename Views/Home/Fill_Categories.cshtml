@@ -1,0 +1,10 @@
+﻿@model IEnumerable<MyBlog_Admin.Models.Category>
+@{
+    Layout = null;
+}
+
+@foreach (var item in Model)
+{
+    <li><a href="@Url.Action("Category","Home",new { category_Id=item.CategoryId})" title="">@item.Name</a></li>
+}
+

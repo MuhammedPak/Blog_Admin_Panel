@@ -1,0 +1,134 @@
+﻿@{
+    ViewBag.Title = "SinglePost";
+}
+@model MyBlog_Admin.Models.Article
+
+
+<article class="entry">
+
+    <header class="entry-header">
+
+        <h2 class="entry-title">@Model.Title</h2>
+
+        <div class="entry-meta">
+            <ul>
+                <li>@Model.Date</li>
+                <span class="meta-sep">&bull;</span>
+                <li>
+                    @foreach (var item in Model.Categories)
+                    {
+                        <a href="#" title="" rel="category tag">@item.Name</a>
+                    }
+
+
+                </li>
+                <span class="meta-sep">&bull;</span>
+                <li>Muhammed Pak</li>
+            </ul>
+        </div>
+
+    </header>
+
+    <div class="entry-content-media">
+        <div class="post-thumb">
+            <img src="/Content/images/m-farmerboy.jpg">
+        </div>
+    </div>
+
+    <div class="entry-content">
+        <p class="lead">@Model.Content_</p>
+    </div>
+
+    <p class="tags">
+        <span>Tagged in </span>:
+        @foreach (var item in Model.Tags)
+        {
+            <a href="#">@item.Name</a>
+        }
+
+    </p>
+    <button type="submit" class="submit" onclick="location.href='@Url.Action("SelectedArticle","Home",new { Id =Model.ArticleId })'" />Update</button>
+
+
+
+
+</article>
+
+<!-- Comments
+================================================== -->
+<div id="comments">
+
+    <h3>@Model.Comments.Count Comments</h3>
+
+    <!-- commentlist -->
+    <ol class="commentlist">
+        @foreach (var item in @Model.Comments)
+        {
+            <li class="depth-1">
+
+                <div class="avatar">
+                    <img width="50" height="50" class="avatar" src="/Content/images/user-01.png" alt="">
+                </div>
+
+                <div class="comment-content">
+
+                    <div class="comment-info">
+                        <cite>@item.Name</cite>
+
+                        <div class="comment-meta">
+                            <time class="comment-time" datetime="2014-07-12T23:05">@item.Date</time>
+
+                        </div>
+                    </div>
+
+                    <div class="comment-text">
+                        <p>
+                            @item.Content_
+                        </p>
+                    </div>
+
+                </div>
+
+            </li>
+            
+        }
+
+
+    </ol> <!-- Commentlist End -->
+    <!-- respond -->
+    <div class="respond">
+
+        <h3>Leave a Comment</h3>
+
+        <!-- form -->
+        <form name="contactForm" id="contactForm" method="post" action="/Home/AddComment">
+            <fieldset>
+
+                <div class="group">
+                    <label for="cName">Name <span class="required">*</span></label>
+                    <input name="Name" type="text" id="cName" size="35" value="" />
+                </div>
+                <div class="group">
+                    <label for="cName">Surname <span class="required">*</span></label>
+                    <input name="Surname" type="text" id="cName" size="35" value="" />
+                </div>
+                <div class="group">
+                    <label for="cEmail">Email <span class="required">*</span></label>
+                    <input name="Email" type="text" id="cSurname" size="35" value="" />
+                </div>
+
+                <input name="ArticleId" type="hidden" value="@Model.ArticleId" />
+
+                <div class="message group">
+                    <label for="cMessage">Message <span class="required">*</span></label>
+                    <textarea name="Message" id="cMessage" rows="10" cols="50"></textarea>
+                </div>
+               
+                <button type="submit" class="submit">Update</button>
+
+            </fieldset>
+        </form> <!-- Form End -->
+
+    </div> <!-- Respond End -->
+
+</div>  <!-- Comments End -->

@@ -1,0 +1,20 @@
+﻿
+@model IEnumerable<MyBlog_Admin.Models.Tag>
+@{
+    Layout = null;
+}
+
+<div class="widget widget_tags">
+    <h3>Post Tags.</h3>
+
+    <div class="tagcloud group">
+
+        @foreach (var item in Model)
+        {
+            <a href="@Url.Action("Tag","Home",new { tag_Id = @item.Tag_Id })">@item.Name</a>
+        }
+
+
+    </div>
+
+</div>
